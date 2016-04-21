@@ -25,7 +25,7 @@ public enum Whitespace {
 	}
 
 	/**
-	 * Retuern the actual whitespace character described by this
+	 * Returns the actual whitespace character described by this
 	 * {@link Whitespace}.
 	 * 
 	 * @return The actual whitespace character.

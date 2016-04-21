@@ -21,25 +21,20 @@
  */
 package net.markenwerk.utils.text.indentation;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.io.IOException;
 
 /**
  * An {@link AbstractIndentation} is an {@link Indentation} that repeats a given
  * indentation string.
- * 
- * <p>
- * The strings containing the repetitions of the indentation string will be
- * reused.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
 public abstract class AbstractIndentation implements Indentation {
 
-	private final Map<Integer, String> indentations = new HashMap<Integer, String>();
-
 	private final String indentationString;
+
+	private final String lineBreakString;
 
 	/**
 	 * Creates a new {@link AbstractIndentation} for the given indentation
@@ -56,34 +51,56 @@ public abstract class AbstractIndentation implements Indentation {
 			throw new IllegalArgumentException("indentationString is null");
 		}
 		this.indentationString = indentationString;
-	}
-
-	@Override
-	public final String getIndentationString(int amount) throws IllegalArgumentException {
-		if (amount < 0) {
-			throw new IllegalArgumentException("depth is negative");
-		}
-		if (0 == amount) {
-			return "";
-		} else {
-			String indentation = indentations.get(amount);
-			if (null == indentation) {
-				synchronized (indentations) {
-					StringBuilder builder = new StringBuilder();
-					for (int i = 0; i < amount; i++) {
-						builder.append(indentationString);
-					}
-					indentation = builder.toString();
-					indentations.put(amount, indentation);
-				}
-			}
-			return indentation;
-		}
+		lineBreakString = System.getProperty("line.separator");
 	}
 
 	@Override
 	public final boolean isVisible() {
 		return 0 != indentationString.length();
+	}
+
+	@Override
+	public String getPrefix(int level) throws IllegalArgumentException {
+		StringBuilder builder = new StringBuilder();
+		for (int i = 0; i < level; i++) {
+			builder.append(indentationString);
+		}
+		return builder.toString();
+	}
+
+	@Override
+	public void appendPrefix(Appendable appendable, int level) throws IllegalArgumentException, IOException {
+		if (null == appendable) {
+			throw new IllegalArgumentException("appendable is null");
+		}
+		for (int i = 0; i < level; i++) {
+			appendable.append(indentationString);
+		}
+	}
+
+	@Override
+	public String getLineBreak(int level) throws IllegalArgumentException {
+		StringBuilder builder = new StringBuilder();
+		if (isVisible()) {
+			builder.append(lineBreakString);
+			for (int i = 0; i < level; i++) {
+				builder.append(indentationString);
+			}
+		}
+		return builder.toString();
+	}
+
+	@Override
+	public void appendLineBreak(Appendable appendable, int level) throws IllegalArgumentException, IOException {
+		if (null == appendable) {
+			throw new IllegalArgumentException("appendable is null");
+		}
+		if (isVisible()) {
+			appendable.append(lineBreakString);
+			for (int i = 0; i < level; i++) {
+				appendable.append(indentationString);
+			}
+		}
 	}
 
 }

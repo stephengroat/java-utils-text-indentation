@@ -21,6 +21,8 @@
  */
 package net.markenwerk.utils.text.indentation;
 
+import java.io.IOException;
+
 /**
  * An {@link Indentation} represents all strings necessary to perform consistent
  * indentation of structured strings.
@@ -37,27 +39,92 @@ public interface Indentation {
 	public static final Indentation DEFAULT = new WhitespaceIndentation(Whitespace.TAB, 1);
 
 	/**
-	 * Returns a string that needs to be appended at the beginning of a line for
-	 * a given depth.
-	 * 
-	 * <p>
-	 * This method must not return {@literal null}.
-	 * 
-	 * @param depth
-	 *            The indentation depth.
-	 * @return The indentation string.
-	 * @throws IllegalArgumentException
-	 *             if the given depth is negative.
-	 */
-	public String getIndentationString(int depth) throws IllegalArgumentException;
-
-	/**
 	 * Returns whether this {@link Indentation} has any visible effect or if
-	 * every {@link Indentation#getIndentationString(int) indentation string} is
-	 * the empty string.
+	 * every {@link Indentation#getPrefix(int) indentation string} is the empty
+	 * string.
 	 * 
 	 * @return Whether this {@link Indentation} has any visible effect.
 	 */
 	public boolean isVisible();
+
+	/**
+	 * Returns the string that needs to be appended at the beginning of a line,
+	 * with the result that the the line is indented by the given level.
+	 * 
+	 * <p>
+	 * The result is never {@literal null}, even if this {@link Indentation} is
+	 * not {@link Indentation#isVisible() visible}.
+	 * 
+	 * 
+	 * @param level
+	 *            The indentation level.
+	 * @return The indentation string.
+	 * @throws IllegalArgumentException
+	 *             If the given level is negative.
+	 */
+	public String getPrefix(int level) throws IllegalArgumentException;
+
+	/**
+	 * Appends the string that needs to be appended at the beginning of a line,
+	 * with the result that the the line is indented by the given level, to the
+	 * given {@link Appendable}
+	 * 
+	 * @param appendable
+	 *            The {@link Appendable} to be used.
+	 * 
+	 * @param level
+	 *            The indentation level.
+	 * @throws IllegalArgumentException
+	 *             If the given {@link Appendable} is {@literal null} or if the
+	 *             given level is negative.
+	 * @throws IOException
+	 *             If appending to the given {@link Appendable} failed.
+	 */
+	public void appendPrefix(Appendable appendable, int level) throws IllegalArgumentException, IOException;
+
+	/**
+	 * Returns the string that needs to be appended at the end of a line, with
+	 * the result that the next line is indented by the given level. This
+	 * includes the necessary line break characters.
+	 * 
+	 * <p>
+	 * The line break characters are omitted, if this {@link Indentation} is not
+	 * {@link Indentation#isVisible() visible}.
+	 * 
+	 * <p>
+	 * The result is never {@literal null}, even if this {@link Indentation} is
+	 * not {@link Indentation#isVisible() visible}.
+	 * 
+	 * @param level
+	 *            The indentation level.
+	 * @return The indentation string.
+	 * 
+	 * @throws IllegalArgumentException
+	 *             If the given level is negative.
+	 */
+	public String getLineBreak(int level) throws IllegalArgumentException;
+
+	/**
+	 * Appends the string that needs to be appended at the end of a line, with
+	 * the result that the next line is indented by the given level, to the
+	 * given {@link Appendable}. This includes the necessary line break
+	 * characters.
+	 * 
+	 * <p>
+	 * The line break characters are omitted, if this {@link Indentation} is not
+	 * {@link Indentation#isVisible() visible}.
+	 * 
+	 * @param appendable
+	 *            The {@link Appendable} to be used.
+	 * 
+	 * @param level
+	 *            The indentation level.
+	 * @throws IllegalArgumentException
+	 *             If the given {@link Appendable} is {@literal null} or if the
+	 *             given level is negative.
+	 * @throws IOException
+	 *             If appending to the given {@link Appendable} failed.
+	 */
+	public void appendLineBreak(Appendable appendable, int level) throws IllegalArgumentException, IOException;
 
 }
