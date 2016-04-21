@@ -11,7 +11,11 @@
 
 This library provides a Common indentation for other libraries that include a pretty printing functionality.
 
-Consult the [documentation](http://markenwerk.github.io/java-utils-text-indentation/javadoc/index.html) and [usage description](#usage) for further information.
+Consult the [documentation](http://markenwerk.github.io/java-utils-text-indentation/javadoc/index.html) and [usage description](#usage) for further information:
+
+- [Using an `Indentation`](#using-an-indentation)
+- [Whitespace `Indentation`](#whitespace-indentation)
+- [Invisible `Indentation`](#invisible-indentation)
 
 ## Maven
 
