@@ -1,8 +1,8 @@
-# A Common indentation for pretty printing libraries for Java
+# A Common indentation for pretty printing libraries
 
 [![Build Status](https://travis-ci.org/markenwerk/java-utils-text-indentation.svg?branch=master)](https://travis-ci.org/markenwerk/java-utils-text-indentation)
 [![Coverage Status](https://coveralls.io/repos/github/markenwerk/java-utils-text-indentation/badge.svg?branch=master)](https://coveralls.io/github/markenwerk/java-utils-text-indentation?branch=master)
-[![Dependency Status](https://www.versioneye.com/user/projects/57100ec5fcd19a0039f16fa4/badge.svg)](https://www.versioneye.com/user/projects/57100ec5fcd19a0039f16fa4)
+[![Dependency Status](https://www.versioneye.com/user/projects/571906ddfcd19a0039f17ad9/badge.svg)](https://www.versioneye.com/user/projects/571906ddfcd19a0039f17ad9)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.markenwerk/utils-text-indentation/badge.svg)](https://maven-badges.herokuapp.com/maven-central/net.markenwerk/utils-text-indentation)
 [![Issues](https://img.shields.io/github/issues/markenwerk/java-utils-text-indentation.svg)](https://github.com/markenwerk/java-utils-text-indentation/issues)
 [![MIT License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/markenwerk/java-utils-text-indentation/blob/master/LICENSE)
@@ -24,7 +24,7 @@ This library is hosted in the [Maven Central Repository](https://maven-badges.he
 ```xml
 <dependency>
 	<groupId>net.markenwerk</groupId>
-	<artifactId>utils-json-commons</artifactId>
+	<artifactId>utils-text-indentation</artifactId>
 	<version>1.0.0</version>
 </dependency>
 ```
