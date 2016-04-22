@@ -43,7 +43,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html" title="interface in net.markenwerk.utils.text.indentation"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../net/markenwerk/utils/text/indentation/Whitespace.html" title="enum in net.markenwerk.utils.text.indentation"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../net/markenwerk/utils/text/indentation/LineBreak.html" title="enum in net.markenwerk.utils.text.indentation"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?net/markenwerk/utils/text/indentation/InvisibleIndentation.html" target="_top">Frames</a></li>
@@ -155,6 +155,12 @@ extends <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIn
 </tr>
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../../net/markenwerk/utils/text/indentation/InvisibleIndentation.html#InvisibleIndentation--">InvisibleIndentation</a></span>()</code>
+<div class="block">Creates a new <a href="../../../../../net/markenwerk/utils/text/indentation/InvisibleIndentation.html" title="class in net.markenwerk.utils.text.indentation"><code>InvisibleIndentation</code></a> using the
+ <a href="../../../../../net/markenwerk/utils/text/indentation/LineBreak.html#SYSTEM"><code>LineBreak.SYSTEM</code></a> <a href="../../../../../net/markenwerk/utils/text/indentation/LineBreak.html" title="enum in net.markenwerk.utils.text.indentation"><code>LineBreak</code></a>.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../net/markenwerk/utils/text/indentation/InvisibleIndentation.html#InvisibleIndentation-net.markenwerk.utils.text.indentation.LineBreak-">InvisibleIndentation</a></span>(<a href="../../../../../net/markenwerk/utils/text/indentation/LineBreak.html" title="enum in net.markenwerk.utils.text.indentation">LineBreak</a>&nbsp;lineBreak)</code>
 <div class="block">Creates a new <a href="../../../../../net/markenwerk/utils/text/indentation/InvisibleIndentation.html" title="class in net.markenwerk.utils.text.indentation"><code>InvisibleIndentation</code></a>.</div>
 </td>
 </tr>
@@ -172,7 +178,7 @@ extends <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIn
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;net.markenwerk.utils.text.indentation.<a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html" title="class in net.markenwerk.utils.text.indentation">AbstractIndentation</a></h3>
-<code><a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#appendLineBreak-java.lang.Appendable-int-">appendLineBreak</a>, <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#appendPrefix-java.lang.Appendable-int-">appendPrefix</a>, <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#getLineBreak-int-">getLineBreak</a>, <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#getPrefix-int-">getPrefix</a>, <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#isVisible--">isVisible</a></code></li>
+<code><a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#appendTo-java.lang.Appendable-int-">appendTo</a>, <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#appendTo-java.lang.Appendable-int-boolean-">appendTo</a>, <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#get-int-">get</a>, <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#get-int-boolean-">get</a>, <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#getLineBreak--">getLineBreak</a>, <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#isVisible--">isVisible</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -198,11 +204,29 @@ extends <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIn
 <a name="InvisibleIndentation--">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>InvisibleIndentation</h4>
 <pre>public&nbsp;InvisibleIndentation()</pre>
+<div class="block">Creates a new <a href="../../../../../net/markenwerk/utils/text/indentation/InvisibleIndentation.html" title="class in net.markenwerk.utils.text.indentation"><code>InvisibleIndentation</code></a> using the
+ <a href="../../../../../net/markenwerk/utils/text/indentation/LineBreak.html#SYSTEM"><code>LineBreak.SYSTEM</code></a> <a href="../../../../../net/markenwerk/utils/text/indentation/LineBreak.html" title="enum in net.markenwerk.utils.text.indentation"><code>LineBreak</code></a>.</div>
+</li>
+</ul>
+<a name="InvisibleIndentation-net.markenwerk.utils.text.indentation.LineBreak-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>InvisibleIndentation</h4>
+<pre>public&nbsp;InvisibleIndentation(<a href="../../../../../net/markenwerk/utils/text/indentation/LineBreak.html" title="enum in net.markenwerk.utils.text.indentation">LineBreak</a>&nbsp;lineBreak)
+                     throws <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></pre>
 <div class="block">Creates a new <a href="../../../../../net/markenwerk/utils/text/indentation/InvisibleIndentation.html" title="class in net.markenwerk.utils.text.indentation"><code>InvisibleIndentation</code></a>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>lineBreak</code> - The <a href="../../../../../net/markenwerk/utils/text/indentation/LineBreak.html" title="enum in net.markenwerk.utils.text.indentation"><code>LineBreak</code></a> to be used.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - If the given <a href="../../../../../net/markenwerk/utils/text/indentation/LineBreak.html" title="enum in net.markenwerk.utils.text.indentation"><code>LineBreak</code></a> is null.</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -233,7 +257,7 @@ extends <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIn
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html" title="interface in net.markenwerk.utils.text.indentation"><span class="typeNameLink">Prev&nbsp;Class</span></a></li>
-<li><a href="../../../../../net/markenwerk/utils/text/indentation/Whitespace.html" title="enum in net.markenwerk.utils.text.indentation"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
+<li><a href="../../../../../net/markenwerk/utils/text/indentation/LineBreak.html" title="enum in net.markenwerk.utils.text.indentation"><span class="typeNameLink">Next&nbsp;Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../../../index.html?net/markenwerk/utils/text/indentation/InvisibleIndentation.html" target="_top">Frames</a></li>

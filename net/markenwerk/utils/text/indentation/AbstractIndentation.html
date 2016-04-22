@@ -18,7 +18,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -160,9 +160,15 @@ implements <a href="../../../../../net/markenwerk/utils/text/indentation/Indenta
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#AbstractIndentation-java.lang.String-">AbstractIndentation</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;indentationString)</code>
-<div class="block">Creates a new <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html" title="class in net.markenwerk.utils.text.indentation"><code>AbstractIndentation</code></a> for the given indentation
- string.</div>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#AbstractIndentation-java.lang.String-net.markenwerk.utils.text.indentation.LineBreak-">AbstractIndentation</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;indentationString,
+                   <a href="../../../../../net/markenwerk/utils/text/indentation/LineBreak.html" title="enum in net.markenwerk.utils.text.indentation">LineBreak</a>&nbsp;lineBreak)</code>
+<div class="block">Creates a new <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html" title="class in net.markenwerk.utils.text.indentation"><code>AbstractIndentation</code></a>.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#AbstractIndentation-java.lang.String-java.lang.String-">AbstractIndentation</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;indentationString,
+                   <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;lineBreakString)</code>
+<div class="block">Creates a new <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html" title="class in net.markenwerk.utils.text.indentation"><code>AbstractIndentation</code></a>.</div>
 </td>
 </tr>
 </table>
@@ -182,41 +188,54 @@ implements <a href="../../../../../net/markenwerk/utils/text/indentation/Indenta
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#appendLineBreak-java.lang.Appendable-int-">appendLineBreak</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang">Appendable</a>&nbsp;appendable,
-               int&nbsp;level)</code>
-<div class="block">Appends the string that needs to be appended at the end of a line, with
- the result that the next line is indented by the given level, to the
- given <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang"><code>Appendable</code></a>.</div>
-</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#appendPrefix-java.lang.Appendable-int-">appendPrefix</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang">Appendable</a>&nbsp;appendable,
-            int&nbsp;level)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#appendTo-java.lang.Appendable-int-">appendTo</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang">Appendable</a>&nbsp;appendable,
+        int&nbsp;level)</code>
 <div class="block">Appends the string that needs to be appended at the beginning of a line,
  with the result that the the line is indented by the given level, to the
  given <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang"><code>Appendable</code></a></div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#getLineBreak-int-">getLineBreak</a></span>(int&nbsp;level)</code>
-<div class="block">Returns the string that needs to be appended at the end of a line, with
- the result that the next line is indented by the given level.</div>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#appendTo-java.lang.Appendable-int-boolean-">appendTo</a></span>(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang">Appendable</a>&nbsp;appendable,
+        int&nbsp;level,
+        boolean&nbsp;includeLineBreak)</code>
+<div class="block">Appends the string that needs to be appended at the beginning of a line,
+ with the result that the the line is indented by the given level or the
+ string that needs to be appended at the end of a line, with the result
+ that the next line is indented by the given level, including the
+ necessary line break characters, to the given <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang"><code>Appendable</code></a>.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#getPrefix-int-">getPrefix</a></span>(int&nbsp;level)</code>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#get-int-">get</a></span>(int&nbsp;level)</code>
 <div class="block">Returns the string that needs to be appended at the beginning of a line,
  with the result that the the line is indented by the given level.</div>
 </td>
 </tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#get-int-boolean-">get</a></span>(int&nbsp;level,
+   boolean&nbsp;includeLineBreak)</code>
+<div class="block">Returns the string that needs to be appended at the beginning of a line,
+ with the result that the the line is indented by the given level or the
+ string that needs to be appended at the end of a line, with the result
+ that the next line is indented by the given level, including the
+ necessary line break characters.</div>
+</td>
+</tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#getLineBreak--">getLineBreak</a></span>()</code>
+<div class="block">returns the line break string used by this <a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html" title="interface in net.markenwerk.utils.text.indentation"><code>Indentation</code></a>.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#isVisible--">isVisible</a></span>()</code>
 <div class="block">Returns whether this <a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html" title="interface in net.markenwerk.utils.text.indentation"><code>Indentation</code></a> has any visible effect or if
- every <a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#getPrefix-int-"><code>indentation string</code></a> is the empty
+ every <a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#get-int-"><code>indentation string</code></a> is the empty
  string.</div>
 </td>
 </tr>
@@ -242,21 +261,50 @@ implements <a href="../../../../../net/markenwerk/utils/text/indentation/Indenta
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="AbstractIndentation-java.lang.String-">
+<a name="AbstractIndentation-java.lang.String-net.markenwerk.utils.text.indentation.LineBreak-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>AbstractIndentation</h4>
+<pre>public&nbsp;AbstractIndentation(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;indentationString,
+                           <a href="../../../../../net/markenwerk/utils/text/indentation/LineBreak.html" title="enum in net.markenwerk.utils.text.indentation">LineBreak</a>&nbsp;lineBreak)</pre>
+<div class="block">Creates a new <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html" title="class in net.markenwerk.utils.text.indentation"><code>AbstractIndentation</code></a>.
+ 
+ <p>
+ An <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html" title="class in net.markenwerk.utils.text.indentation"><code>AbstractIndentation</code></a> with level <code>0</code> has no visible
+ effect.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>indentationString</code> - The indentation string to be used.</dd>
+<dd><code>lineBreak</code> - The line break string to be used.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - If the given indentation string is null or if the
+             given <a href="../../../../../net/markenwerk/utils/text/indentation/LineBreak.html" title="enum in net.markenwerk.utils.text.indentation"><code>LineBreak</code></a> is null.</dd>
+</dl>
+</li>
+</ul>
+<a name="AbstractIndentation-java.lang.String-java.lang.String-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>AbstractIndentation</h4>
-<pre>public&nbsp;AbstractIndentation(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;indentationString)
+<pre>public&nbsp;AbstractIndentation(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;indentationString,
+                           <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;lineBreakString)
                     throws <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></pre>
-<div class="block">Creates a new <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html" title="class in net.markenwerk.utils.text.indentation"><code>AbstractIndentation</code></a> for the given indentation
- string.</div>
+<div class="block">Creates a new <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html" title="class in net.markenwerk.utils.text.indentation"><code>AbstractIndentation</code></a>.
+ 
+ <p>
+ An <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html" title="class in net.markenwerk.utils.text.indentation"><code>AbstractIndentation</code></a> with level <code>0</code> has no visible
+ effect.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>indentationString</code> - the indentation string to be used.</dd>
+<dd><code>indentationString</code> - The indentation string to be used.</dd>
+<dd><code>lineBreakString</code> - The line break string to be used.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - If the given indentation string is null.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - If the given indentation string is null or if the
+             given line break string is null.</dd>
 </dl>
 </li>
 </ul>
@@ -268,6 +316,23 @@ implements <a href="../../../../../net/markenwerk/utils/text/indentation/Indenta
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a name="getLineBreak--">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getLineBreak</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getLineBreak()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#getLineBreak--">Indentation</a></code></span></div>
+<div class="block">returns the line break string used by this <a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html" title="interface in net.markenwerk.utils.text.indentation"><code>Indentation</code></a>.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#getLineBreak--">getLineBreak</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html" title="interface in net.markenwerk.utils.text.indentation">Indentation</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>The line break string used by this <a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html" title="interface in net.markenwerk.utils.text.indentation"><code>Indentation</code></a>.</dd>
+</dl>
+</li>
+</ul>
 <a name="isVisible--">
 <!--   -->
 </a>
@@ -277,7 +342,7 @@ implements <a href="../../../../../net/markenwerk/utils/text/indentation/Indenta
 <pre>public final&nbsp;boolean&nbsp;isVisible()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#isVisible--">Indentation</a></code></span></div>
 <div class="block">Returns whether this <a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html" title="interface in net.markenwerk.utils.text.indentation"><code>Indentation</code></a> has any visible effect or if
- every <a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#getPrefix-int-"><code>indentation string</code></a> is the empty
+ every <a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#get-int-"><code>indentation string</code></a> is the empty
  string.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
@@ -287,15 +352,15 @@ implements <a href="../../../../../net/markenwerk/utils/text/indentation/Indenta
 </dl>
 </li>
 </ul>
-<a name="getPrefix-int-">
+<a name="get-int-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getPrefix</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getPrefix(int&nbsp;level)
-                 throws <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#getPrefix-int-">Indentation</a></code></span></div>
+<h4>get</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;get(int&nbsp;level)
+           throws <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#get-int-">Indentation</a></code></span></div>
 <div class="block">Returns the string that needs to be appended at the beginning of a line,
  with the result that the the line is indented by the given level.
  
@@ -304,7 +369,7 @@ implements <a href="../../../../../net/markenwerk/utils/text/indentation/Indenta
  not <a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#isVisible--"><code>visible</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#getPrefix-int-">getPrefix</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html" title="interface in net.markenwerk.utils.text.indentation">Indentation</a></code></dd>
+<dd><code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#get-int-">get</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html" title="interface in net.markenwerk.utils.text.indentation">Indentation</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>level</code> - The indentation level.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -314,45 +379,21 @@ implements <a href="../../../../../net/markenwerk/utils/text/indentation/Indenta
 </dl>
 </li>
 </ul>
-<a name="appendPrefix-java.lang.Appendable-int-">
+<a name="get-int-boolean-">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>appendPrefix</h4>
-<pre>public&nbsp;void&nbsp;appendPrefix(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang">Appendable</a>&nbsp;appendable,
-                         int&nbsp;level)
-                  throws <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a>,
-                         <a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#appendPrefix-java.lang.Appendable-int-">Indentation</a></code></span></div>
-<div class="block">Appends the string that needs to be appended at the beginning of a line,
- with the result that the the line is indented by the given level, to the
- given <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang"><code>Appendable</code></a></div>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#appendPrefix-java.lang.Appendable-int-">appendPrefix</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html" title="interface in net.markenwerk.utils.text.indentation">Indentation</a></code></dd>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>appendable</code> - The <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang"><code>Appendable</code></a> to be used.</dd>
-<dd><code>level</code> - The indentation level.</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - If the given <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang"><code>Appendable</code></a> is null or if the
-             given level is negative.</dd>
-<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - If appending to the given <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang"><code>Appendable</code></a> failed.</dd>
-</dl>
-</li>
-</ul>
-<a name="getLineBreak-int-">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getLineBreak</h4>
-<pre>public&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;getLineBreak(int&nbsp;level)
-                    throws <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#getLineBreak-int-">Indentation</a></code></span></div>
-<div class="block">Returns the string that needs to be appended at the end of a line, with
- the result that the next line is indented by the given level. This
- includes the necessary line break characters.
+<h4>get</h4>
+<pre>public&nbsp;<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;get(int&nbsp;level,
+                  boolean&nbsp;includeLineBreak)
+           throws <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#get-int-boolean-">Indentation</a></code></span></div>
+<div class="block">Returns the string that needs to be appended at the beginning of a line,
+ with the result that the the line is indented by the given level or the
+ string that needs to be appended at the end of a line, with the result
+ that the next line is indented by the given level, including the
+ necessary line break characters.
  
  <p>
  The line break characters are omitted, if this <a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html" title="interface in net.markenwerk.utils.text.indentation"><code>Indentation</code></a> is not
@@ -363,9 +404,10 @@ implements <a href="../../../../../net/markenwerk/utils/text/indentation/Indenta
  not <a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#isVisible--"><code>visible</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#getLineBreak-int-">getLineBreak</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html" title="interface in net.markenwerk.utils.text.indentation">Indentation</a></code></dd>
+<dd><code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#get-int-boolean-">get</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html" title="interface in net.markenwerk.utils.text.indentation">Indentation</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>level</code> - The indentation level.</dd>
+<dd><code>includeLineBreak</code> - Whether to include the line break characters.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The indentation string.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
@@ -373,31 +415,61 @@ implements <a href="../../../../../net/markenwerk/utils/text/indentation/Indenta
 </dl>
 </li>
 </ul>
-<a name="appendLineBreak-java.lang.Appendable-int-">
+<a name="appendTo-java.lang.Appendable-int-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>appendTo</h4>
+<pre>public&nbsp;void&nbsp;appendTo(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang">Appendable</a>&nbsp;appendable,
+                     int&nbsp;level)
+              throws <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a>,
+                     <a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#appendTo-java.lang.Appendable-int-">Indentation</a></code></span></div>
+<div class="block">Appends the string that needs to be appended at the beginning of a line,
+ with the result that the the line is indented by the given level, to the
+ given <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang"><code>Appendable</code></a></div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#appendTo-java.lang.Appendable-int-">appendTo</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html" title="interface in net.markenwerk.utils.text.indentation">Indentation</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>appendable</code> - The <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang"><code>Appendable</code></a> to be used.</dd>
+<dd><code>level</code> - The indentation level.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - If the given <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang"><code>Appendable</code></a> is null or if the
+             given level is negative.</dd>
+<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - If appending to the given <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang"><code>Appendable</code></a> failed.</dd>
+</dl>
+</li>
+</ul>
+<a name="appendTo-java.lang.Appendable-int-boolean-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>appendLineBreak</h4>
-<pre>public&nbsp;void&nbsp;appendLineBreak(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang">Appendable</a>&nbsp;appendable,
-                            int&nbsp;level)
-                     throws <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a>,
-                            <a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#appendLineBreak-java.lang.Appendable-int-">Indentation</a></code></span></div>
-<div class="block">Appends the string that needs to be appended at the end of a line, with
- the result that the next line is indented by the given level, to the
- given <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang"><code>Appendable</code></a>. This includes the necessary line break
- characters.
+<h4>appendTo</h4>
+<pre>public&nbsp;void&nbsp;appendTo(<a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang">Appendable</a>&nbsp;appendable,
+                     int&nbsp;level,
+                     boolean&nbsp;includeLineBreak)
+              throws <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a>,
+                     <a href="http://docs.oracle.com/javase/8/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#appendTo-java.lang.Appendable-int-boolean-">Indentation</a></code></span></div>
+<div class="block">Appends the string that needs to be appended at the beginning of a line,
+ with the result that the the line is indented by the given level or the
+ string that needs to be appended at the end of a line, with the result
+ that the next line is indented by the given level, including the
+ necessary line break characters, to the given <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang"><code>Appendable</code></a>.
  
  <p>
  The line break characters are omitted, if this <a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html" title="interface in net.markenwerk.utils.text.indentation"><code>Indentation</code></a> is not
  <a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#isVisible--"><code>visible</code></a>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#appendLineBreak-java.lang.Appendable-int-">appendLineBreak</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html" title="interface in net.markenwerk.utils.text.indentation">Indentation</a></code></dd>
+<dd><code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html#appendTo-java.lang.Appendable-int-boolean-">appendTo</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../net/markenwerk/utils/text/indentation/Indentation.html" title="interface in net.markenwerk.utils.text.indentation">Indentation</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>appendable</code> - The <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang"><code>Appendable</code></a> to be used.</dd>
 <dd><code>level</code> - The indentation level.</dd>
+<dd><code>includeLineBreak</code> - Whether to include the line break characters.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - If the given <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Appendable.html?is-external=true" title="class or interface in java.lang"><code>Appendable</code></a> is null or if the
              given level is negative.</dd>

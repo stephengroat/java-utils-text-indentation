@@ -160,8 +160,15 @@ extends <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIn
 <tr class="altColor">
 <td class="colOne"><code><span class="memberNameLink"><a href="../../../../../net/markenwerk/utils/text/indentation/WhitespaceIndentation.html#WhitespaceIndentation-net.markenwerk.utils.text.indentation.Whitespace-int-">WhitespaceIndentation</a></span>(<a href="../../../../../net/markenwerk/utils/text/indentation/Whitespace.html" title="enum in net.markenwerk.utils.text.indentation">Whitespace</a>&nbsp;whitespace,
                      int&nbsp;length)</code>
-<div class="block">Creates a new <a href="../../../../../net/markenwerk/utils/text/indentation/WhitespaceIndentation.html" title="class in net.markenwerk.utils.text.indentation"><code>WhitespaceIndentation</code></a> for the given indentation
- string.</div>
+<div class="block">Creates a new <a href="../../../../../net/markenwerk/utils/text/indentation/WhitespaceIndentation.html" title="class in net.markenwerk.utils.text.indentation"><code>WhitespaceIndentation</code></a> using the
+ <a href="../../../../../net/markenwerk/utils/text/indentation/LineBreak.html#SYSTEM"><code>LineBreak.SYSTEM</code></a> <a href="../../../../../net/markenwerk/utils/text/indentation/LineBreak.html" title="enum in net.markenwerk.utils.text.indentation"><code>LineBreak</code></a>.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../../../net/markenwerk/utils/text/indentation/WhitespaceIndentation.html#WhitespaceIndentation-net.markenwerk.utils.text.indentation.Whitespace-int-net.markenwerk.utils.text.indentation.LineBreak-">WhitespaceIndentation</a></span>(<a href="../../../../../net/markenwerk/utils/text/indentation/Whitespace.html" title="enum in net.markenwerk.utils.text.indentation">Whitespace</a>&nbsp;whitespace,
+                     int&nbsp;length,
+                     <a href="../../../../../net/markenwerk/utils/text/indentation/LineBreak.html" title="enum in net.markenwerk.utils.text.indentation">LineBreak</a>&nbsp;lineBreak)</code>
+<div class="block">Creates a new <a href="../../../../../net/markenwerk/utils/text/indentation/WhitespaceIndentation.html" title="class in net.markenwerk.utils.text.indentation"><code>WhitespaceIndentation</code></a>.</div>
 </td>
 </tr>
 </table>
@@ -178,7 +185,7 @@ extends <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIn
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;net.markenwerk.utils.text.indentation.<a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html" title="class in net.markenwerk.utils.text.indentation">AbstractIndentation</a></h3>
-<code><a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#appendLineBreak-java.lang.Appendable-int-">appendLineBreak</a>, <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#appendPrefix-java.lang.Appendable-int-">appendPrefix</a>, <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#getLineBreak-int-">getLineBreak</a>, <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#getPrefix-int-">getPrefix</a>, <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#isVisible--">isVisible</a></code></li>
+<code><a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#appendTo-java.lang.Appendable-int-">appendTo</a>, <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#appendTo-java.lang.Appendable-int-boolean-">appendTo</a>, <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#get-int-">get</a>, <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#get-int-boolean-">get</a>, <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#getLineBreak--">getLineBreak</a>, <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIndentation.html#isVisible--">isVisible</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
@@ -204,14 +211,18 @@ extends <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIn
 <a name="WhitespaceIndentation-net.markenwerk.utils.text.indentation.Whitespace-int-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>WhitespaceIndentation</h4>
 <pre>public&nbsp;WhitespaceIndentation(<a href="../../../../../net/markenwerk/utils/text/indentation/Whitespace.html" title="enum in net.markenwerk.utils.text.indentation">Whitespace</a>&nbsp;whitespace,
                              int&nbsp;length)
                       throws <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></pre>
-<div class="block">Creates a new <a href="../../../../../net/markenwerk/utils/text/indentation/WhitespaceIndentation.html" title="class in net.markenwerk.utils.text.indentation"><code>WhitespaceIndentation</code></a> for the given indentation
- string.</div>
+<div class="block">Creates a new <a href="../../../../../net/markenwerk/utils/text/indentation/WhitespaceIndentation.html" title="class in net.markenwerk.utils.text.indentation"><code>WhitespaceIndentation</code></a> using the
+ <a href="../../../../../net/markenwerk/utils/text/indentation/LineBreak.html#SYSTEM"><code>LineBreak.SYSTEM</code></a> <a href="../../../../../net/markenwerk/utils/text/indentation/LineBreak.html" title="enum in net.markenwerk.utils.text.indentation"><code>LineBreak</code></a>.
+ 
+ <p>
+ A <a href="../../../../../net/markenwerk/utils/text/indentation/WhitespaceIndentation.html" title="class in net.markenwerk.utils.text.indentation"><code>WhitespaceIndentation</code></a> with level <code>0</code> has no visible
+ effect.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>whitespace</code> - The <a href="../../../../../net/markenwerk/utils/text/indentation/Whitespace.html" title="enum in net.markenwerk.utils.text.indentation"><code>Whitespace</code></a> character to be used.</dd>
@@ -220,6 +231,34 @@ extends <a href="../../../../../net/markenwerk/utils/text/indentation/AbstractIn
 <dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - If the given <a href="http://docs.oracle.com/javase/8/docs/api/java/io/Writer.html?is-external=true" title="class or interface in java.io"><code>Writer</code></a> is null or if the
              given <a href="../../../../../net/markenwerk/utils/text/indentation/Whitespace.html" title="enum in net.markenwerk.utils.text.indentation"><code>Whitespace</code></a> character is null or if
              the given indentation length is negative.</dd>
+</dl>
+</li>
+</ul>
+<a name="WhitespaceIndentation-net.markenwerk.utils.text.indentation.Whitespace-int-net.markenwerk.utils.text.indentation.LineBreak-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>WhitespaceIndentation</h4>
+<pre>public&nbsp;WhitespaceIndentation(<a href="../../../../../net/markenwerk/utils/text/indentation/Whitespace.html" title="enum in net.markenwerk.utils.text.indentation">Whitespace</a>&nbsp;whitespace,
+                             int&nbsp;length,
+                             <a href="../../../../../net/markenwerk/utils/text/indentation/LineBreak.html" title="enum in net.markenwerk.utils.text.indentation">LineBreak</a>&nbsp;lineBreak)
+                      throws <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></pre>
+<div class="block">Creates a new <a href="../../../../../net/markenwerk/utils/text/indentation/WhitespaceIndentation.html" title="class in net.markenwerk.utils.text.indentation"><code>WhitespaceIndentation</code></a>.
+ 
+ <p>
+ A <a href="../../../../../net/markenwerk/utils/text/indentation/WhitespaceIndentation.html" title="class in net.markenwerk.utils.text.indentation"><code>WhitespaceIndentation</code></a> with level <code>0</code> has no visible
+ effect.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>whitespace</code> - The <a href="../../../../../net/markenwerk/utils/text/indentation/Whitespace.html" title="enum in net.markenwerk.utils.text.indentation"><code>Whitespace</code></a> character to be used.</dd>
+<dd><code>length</code> - The indentation length to be used.</dd>
+<dd><code>lineBreak</code> - the <a href="../../../../../net/markenwerk/utils/text/indentation/LineBreak.html" title="enum in net.markenwerk.utils.text.indentation"><code>LineBreak</code></a> to be used.</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - If the given <a href="http://docs.oracle.com/javase/8/docs/api/java/io/Writer.html?is-external=true" title="class or interface in java.io"><code>Writer</code></a> is null or if the
+             given <a href="../../../../../net/markenwerk/utils/text/indentation/Whitespace.html" title="enum in net.markenwerk.utils.text.indentation"><code>Whitespace</code></a> character is null or if
+             the given indentation length is negative or if the given
+             <a href="../../../../../net/markenwerk/utils/text/indentation/LineBreak.html" title="enum in net.markenwerk.utils.text.indentation"><code>LineBreak</code></a> is null.</dd>
 </dl>
 </li>
 </ul>
