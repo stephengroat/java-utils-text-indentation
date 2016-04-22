@@ -8,6 +8,9 @@ package net.markenwerk.utils.text.indentation;
  */
 public enum LineBreak {
 
+	/** The empty string */
+	NONE(""), 
+	
 	/**
 	 * A single line feed character.
 	 */
@@ -23,6 +26,8 @@ public enum LineBreak {
 	 * {@code line.separator}.
 	 */
 	SYSTEM(System.getProperty("line.separator"));
+	
+	
 
 	private final String lineBreakString;
 
