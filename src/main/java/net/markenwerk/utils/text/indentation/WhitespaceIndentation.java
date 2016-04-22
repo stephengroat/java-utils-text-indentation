@@ -40,6 +40,10 @@ public final class WhitespaceIndentation extends AbstractIndentation {
 	 * Creates a new {@link WhitespaceIndentation} using the
 	 * {@link LineBreak#SYSTEM} {@link LineBreak}.
 	 * 
+	 * <p>
+	 * A {@link WhitespaceIndentation} with level {@code 0} has no visible
+	 * effect.
+	 * 
 	 * @param whitespace
 	 *            The {@link Whitespace} character to be used.
 	 * @param length
@@ -56,6 +60,10 @@ public final class WhitespaceIndentation extends AbstractIndentation {
 
 	/**
 	 * Creates a new {@link WhitespaceIndentation}.
+	 * 
+	 * <p>
+	 * A {@link WhitespaceIndentation} with level {@code 0} has no visible
+	 * effect.
 	 * 
 	 * @param whitespace
 	 *            The {@link Whitespace} character to be used.

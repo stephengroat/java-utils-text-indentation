@@ -39,6 +39,10 @@ public abstract class AbstractIndentation implements Indentation {
 	/**
 	 * Creates a new {@link AbstractIndentation}.
 	 * 
+	 * <p>
+	 * An {@link AbstractIndentation} with level {@code 0} has no visible
+	 * effect.
+	 * 
 	 * @param indentationString
 	 *            The indentation string to be used.
 	 * @param lineBreak
@@ -61,6 +65,10 @@ public abstract class AbstractIndentation implements Indentation {
 
 	/**
 	 * Creates a new {@link AbstractIndentation}.
+	 * 
+	 * <p>
+	 * An {@link AbstractIndentation} with level {@code 0} has no visible
+	 * effect.
 	 * 
 	 * @param indentationString
 	 *            The indentation string to be used.
