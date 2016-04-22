@@ -1,7 +1,7 @@
 package net.markenwerk.utils.text.indentation;
 
 /**
- * An {@link Whitespace} is one of the typically used whitespace characters.
+ * An {@link Whitespace} is a whitespace character string.
  * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
@@ -9,29 +9,28 @@ package net.markenwerk.utils.text.indentation;
 public enum Whitespace {
 
 	/**
-	 * The space character.
+	 * A single space character.
 	 */
-	SPACE(' '),
+	SPACE(" "),
 
 	/**
-	 * The tab character.
+	 * A single tab character.
 	 */
-	TAB('\t');
+	TAB("\t");
 
-	private final char whitespaceCharacter;
+	private final String whitespaceString;
 
-	private Whitespace(char whitespaceCharacter) {
-		this.whitespaceCharacter = whitespaceCharacter;
+	private Whitespace(String whitespaceString) {
+		this.whitespaceString = whitespaceString;
 	}
 
 	/**
-	 * Returns the actual whitespace character described by this
-	 * {@link Whitespace}.
+	 * Returns the whitespace string of this {@link Whitespace}.
 	 * 
-	 * @return The actual whitespace character.
+	 * @return The whitespace string of this {@link Whitespace}.
 	 */
-	public char getWhitespaceCharacter() {
-		return whitespaceCharacter;
+	public String getWhitespaceString() {
+		return whitespaceString;
 	}
 
 }

@@ -37,8 +37,8 @@ import java.io.Writer;
 public final class WhitespaceIndentation extends AbstractIndentation {
 
 	/**
-	 * Creates a new {@link WhitespaceIndentation} for the given indentation
-	 * string.
+	 * Creates a new {@link WhitespaceIndentation} using the
+	 * {@link LineBreak#SYSTEM} {@link LineBreak}.
 	 * 
 	 * @param whitespace
 	 *            The {@link Whitespace} character to be used.
@@ -51,10 +51,31 @@ public final class WhitespaceIndentation extends AbstractIndentation {
 	 *             the given indentation length is negative.
 	 */
 	public WhitespaceIndentation(Whitespace whitespace, int length) throws IllegalArgumentException {
-		super(makeIndentation(whitespace, length));
+		this(whitespace, length, LineBreak.SYSTEM);
 	}
 
-	private static String makeIndentation(Whitespace whitespace, int length) {
+	/**
+	 * Creates a new {@link WhitespaceIndentation}.
+	 * 
+	 * @param whitespace
+	 *            The {@link Whitespace} character to be used.
+	 * @param length
+	 *            The indentation length to be used.
+	 * @param lineBreak
+	 *            the {@link LineBreak} to be used.
+	 * 
+	 * @throws IllegalArgumentException
+	 *             If the given {@link Writer} is {@literal null} or if the
+	 *             given {@link Whitespace} character is {@literal null} or if
+	 *             the given indentation length is negative or if the given
+	 *             {@link LineBreak} is {@literal null}.
+	 */
+	public WhitespaceIndentation(Whitespace whitespace, int length, LineBreak lineBreak)
+			throws IllegalArgumentException {
+		super(fromWhitespaceAndLength(whitespace, length), lineBreak);
+	}
+
+	private static String fromWhitespaceAndLength(Whitespace whitespace, int length) {
 		if (null == whitespace) {
 			throw new IllegalArgumentException("whitespace is null");
 		}
@@ -63,7 +84,7 @@ public final class WhitespaceIndentation extends AbstractIndentation {
 		}
 		String indentation = "";
 		for (int i = 0; i < length; i++) {
-			indentation += whitespace.getWhitespaceCharacter();
+			indentation += whitespace.getWhitespaceString();
 		}
 		return indentation;
 	}

@@ -27,6 +27,11 @@ import java.io.IOException;
  * An {@link Indentation} represents all strings necessary to perform consistent
  * indentation of structured strings.
  * 
+ * <p>
+ * An {@link Indentation} may choose to have no {@link Indentation#isVisible()
+ * visible} effect, in which case calling any other method of the
+ * {@link Indentation} has no effect.
+ * 
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
@@ -40,12 +45,20 @@ public interface Indentation {
 
 	/**
 	 * Returns whether this {@link Indentation} has any visible effect or if
-	 * every {@link Indentation#getPrefix(int) indentation string} is the empty
+	 * every {@link Indentation#get(int) indentation string} is the empty
 	 * string.
 	 * 
 	 * @return Whether this {@link Indentation} has any visible effect.
 	 */
 	public boolean isVisible();
+
+	/**
+	 * returns the line break string used by this {@link Indentation}.
+	 * 
+	 * @return The line break string used by this {@link Indentation}.
+	 * 
+	 */
+	public String getLineBreak();
 
 	/**
 	 * Returns the string that needs to be appended at the beginning of a line,
@@ -62,30 +75,14 @@ public interface Indentation {
 	 * @throws IllegalArgumentException
 	 *             If the given level is negative.
 	 */
-	public String getPrefix(int level) throws IllegalArgumentException;
+	public String get(int level) throws IllegalArgumentException;
 
 	/**
-	 * Appends the string that needs to be appended at the beginning of a line,
-	 * with the result that the the line is indented by the given level, to the
-	 * given {@link Appendable}
-	 * 
-	 * @param appendable
-	 *            The {@link Appendable} to be used.
-	 * 
-	 * @param level
-	 *            The indentation level.
-	 * @throws IllegalArgumentException
-	 *             If the given {@link Appendable} is {@literal null} or if the
-	 *             given level is negative.
-	 * @throws IOException
-	 *             If appending to the given {@link Appendable} failed.
-	 */
-	public void appendPrefix(Appendable appendable, int level) throws IllegalArgumentException, IOException;
-
-	/**
-	 * Returns the string that needs to be appended at the end of a line, with
-	 * the result that the next line is indented by the given level. This
-	 * includes the necessary line break characters.
+	 * Returns the string that needs to be appended at the beginning of a line,
+	 * with the result that the the line is indented by the given level or the
+	 * string that needs to be appended at the end of a line, with the result
+	 * that the next line is indented by the given level, including the
+	 * necessary line break characters.
 	 * 
 	 * <p>
 	 * The line break characters are omitted, if this {@link Indentation} is not
@@ -97,18 +94,39 @@ public interface Indentation {
 	 * 
 	 * @param level
 	 *            The indentation level.
+	 * @param includeLineBreak
+	 *            Whether to include the line break characters.
 	 * @return The indentation string.
 	 * 
 	 * @throws IllegalArgumentException
 	 *             If the given level is negative.
 	 */
-	public String getLineBreak(int level) throws IllegalArgumentException;
+	public String get(int level, boolean includeLineBreak) throws IllegalArgumentException;
 
 	/**
-	 * Appends the string that needs to be appended at the end of a line, with
-	 * the result that the next line is indented by the given level, to the
-	 * given {@link Appendable}. This includes the necessary line break
-	 * characters.
+	 * Appends the string that needs to be appended at the beginning of a line,
+	 * with the result that the the line is indented by the given level, to the
+	 * given {@link Appendable}
+	 * 
+	 * @param appendable
+	 *            The {@link Appendable} to be used.
+	 * @param level
+	 *            The indentation level.
+	 * 
+	 * @throws IllegalArgumentException
+	 *             If the given {@link Appendable} is {@literal null} or if the
+	 *             given level is negative.
+	 * @throws IOException
+	 *             If appending to the given {@link Appendable} failed.
+	 */
+	public void appendTo(Appendable appendable, int level) throws IllegalArgumentException, IOException;
+
+	/**
+	 * Appends the string that needs to be appended at the beginning of a line,
+	 * with the result that the the line is indented by the given level or the
+	 * string that needs to be appended at the end of a line, with the result
+	 * that the next line is indented by the given level, including the
+	 * necessary line break characters, to the given {@link Appendable}.
 	 * 
 	 * <p>
 	 * The line break characters are omitted, if this {@link Indentation} is not
@@ -116,15 +134,18 @@ public interface Indentation {
 	 * 
 	 * @param appendable
 	 *            The {@link Appendable} to be used.
-	 * 
 	 * @param level
 	 *            The indentation level.
+	 * @param includeLineBreak
+	 *            Whether to include the line break characters.
+	 * 
 	 * @throws IllegalArgumentException
 	 *             If the given {@link Appendable} is {@literal null} or if the
 	 *             given level is negative.
 	 * @throws IOException
 	 *             If appending to the given {@link Appendable} failed.
 	 */
-	public void appendLineBreak(Appendable appendable, int level) throws IllegalArgumentException, IOException;
+	public void appendTo(Appendable appendable, int level, boolean includeLineBreak) throws IllegalArgumentException,
+			IOException;
 
 }

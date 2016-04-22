@@ -37,21 +37,55 @@ public abstract class AbstractIndentation implements Indentation {
 	private final String lineBreakString;
 
 	/**
-	 * Creates a new {@link AbstractIndentation} for the given indentation
-	 * string.
+	 * Creates a new {@link AbstractIndentation}.
 	 * 
 	 * @param indentationString
-	 *            the indentation string to be used.
+	 *            The indentation string to be used.
+	 * @param lineBreak
+	 *            The line break string to be used.
 	 * @throws IllegalArgumentException
-	 *             If the given indentation string is {@literal null}.
+	 *             If the given indentation string is {@literal null} or if the
+	 *             given {@link LineBreak} is {@literal null}.
 	 * 
 	 */
-	public AbstractIndentation(String indentationString) throws IllegalArgumentException {
+	public AbstractIndentation(String indentationString, LineBreak lineBreak) {
+		this(indentationString, fromLineBreak(lineBreak));
+	}
+
+	private static String fromLineBreak(LineBreak lineBreak) {
+		if (null == lineBreak) {
+			throw new IllegalArgumentException("lineBreak is null");
+		}
+		return lineBreak.getLineBreakString();
+	}
+
+	/**
+	 * Creates a new {@link AbstractIndentation}.
+	 * 
+	 * @param indentationString
+	 *            The indentation string to be used.
+	 * @param lineBreakString
+	 *            The line break string to be used.
+	 * @throws IllegalArgumentException
+	 *             If the given indentation string is {@literal null} or if the
+	 *             given line break string is {@literal null}.
+	 * 
+	 */
+	public AbstractIndentation(String indentationString, String lineBreakString) throws IllegalArgumentException {
 		if (null == indentationString) {
 			throw new IllegalArgumentException("indentationString is null");
 		}
+		if (null == lineBreakString) {
+			throw new IllegalArgumentException("lineBreakString is null");
+		}
 		this.indentationString = indentationString;
+		this.lineBreakString = lineBreakString;
 		lineBreakString = System.getProperty("line.separator");
+	}
+
+	@Override
+	public String getLineBreak() {
+		return lineBreakString;
 	}
 
 	@Override
@@ -60,29 +94,17 @@ public abstract class AbstractIndentation implements Indentation {
 	}
 
 	@Override
-	public String getPrefix(int level) throws IllegalArgumentException {
-		StringBuilder builder = new StringBuilder();
-		for (int i = 0; i < level; i++) {
-			builder.append(indentationString);
-		}
-		return builder.toString();
+	public String get(int level) throws IllegalArgumentException {
+		return get(level, false);
 	}
 
 	@Override
-	public void appendPrefix(Appendable appendable, int level) throws IllegalArgumentException, IOException {
-		if (null == appendable) {
-			throw new IllegalArgumentException("appendable is null");
-		}
-		for (int i = 0; i < level; i++) {
-			appendable.append(indentationString);
-		}
-	}
-
-	@Override
-	public String getLineBreak(int level) throws IllegalArgumentException {
+	public String get(int level, boolean includeLineBreak) throws IllegalArgumentException {
 		StringBuilder builder = new StringBuilder();
 		if (isVisible()) {
-			builder.append(lineBreakString);
+			if (includeLineBreak) {
+				builder.append(lineBreakString);
+			}
 			for (int i = 0; i < level; i++) {
 				builder.append(indentationString);
 			}
@@ -91,12 +113,20 @@ public abstract class AbstractIndentation implements Indentation {
 	}
 
 	@Override
-	public void appendLineBreak(Appendable appendable, int level) throws IllegalArgumentException, IOException {
+	public void appendTo(Appendable appendable, int level) throws IllegalArgumentException, IOException {
+		appendTo(appendable, level, false);
+	}
+
+	@Override
+	public void appendTo(Appendable appendable, int level, boolean includeLineBreak) throws IllegalArgumentException,
+			IOException {
 		if (null == appendable) {
 			throw new IllegalArgumentException("appendable is null");
 		}
 		if (isVisible()) {
-			appendable.append(lineBreakString);
+			if (includeLineBreak) {
+				appendable.append(lineBreakString);
+			}
 			for (int i = 0; i < level; i++) {
 				appendable.append(indentationString);
 			}

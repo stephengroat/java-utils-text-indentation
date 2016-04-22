@@ -39,31 +39,29 @@ This library provides the [`Indentation`][Indentation] interface.
 
 ### Using an `Indentation`
 
-An [`Indentation`][Indentation] provides the following two methods to create a character sequence that  needs to be appended at the beginning of a line, with the result that the the line is indented by the given level.
+An [`Indentation`][Indentation] provides the following two methods to create a character sequence that needs to be appended at the beginning of a line, with the result that the the line is indented by the given level.
 
 ```java
 Indentation indentation = ...;
 
 // get an indentation prefix for the given level
-indentation.getPrefix(level);
+indentation.get(level);
 
 // append an indentation prefix for the given level
-indentation.appendPrefix(appendable, level);
+indentation.append(appendable, level);
 ```
 
-An [`Indentation`][Indentation] provides the following two methods to create a character sequence that needs to be appended at the end of a line, with the result that the next line is indented by the given level. This includes the necessary line break characters.
+An [`Indentation`][Indentation] provides the following two methods that optionally append a line break to create the character sequence that needs to be appended at the end of a line, with the result that the next line is indented by the given level. This includes the necessary line break characters.
 
 ```java
 Indentation indentation = ...;
 
 // get an indentation prefix for the given level
-indentation.getLineBreak(level);
+indentation.get(level, true);
 
 // append an indentation prefix for the given level
-indentation.appendLineBreak(appendable, level);
+indentation.append(appendable, level, true);
 ```
-
-An [`Indentation`][Indentation] that has no visible effect won't include the line break characters.
 
 It is also possible to check, if an [`Indentation`][Indentation] will have any visible effect.
 
@@ -74,7 +72,7 @@ Indentation indentation = ...;
 boolean prettyPrinting = indentation.isVisible();
 ```
 
-The result of `isVisible()` is useful, if a pretty printer needs to behave differently (e.g. add whitespace between separators). Even if `isVisible()` returns `false`, `getPrefix(int)` and `getLineBreak(int)` will always return a [`String`] that is not `null`. This means that it is safe to use these methods without any checks. 
+The result of `isVisible()` is useful, if a pretty printer needs to behave differently (e.g. add whitespace between separators). Even if `isVisible()` returns `false`, `getPrefix(int)` and `getLineBreak(int)` will always return a [`String`] that is not `null`. This means that it is safe to use these methods without any checks. An [`Indentation`][Indentation] that has no visible effect won't include the line break characters.
 
 ### Whitespace `Indentation`
 
@@ -84,8 +82,8 @@ This library provides the [`WhitespaceIndentation`][WhitespaceIndentation] that 
 // indentation with four spaces
 Indentation spaceIndentation = new WhitespaceIndentation(Whitespace.SPACE, 4);
 
-// indentation with one tab
-Indentation tabIndentation = new WhitespaceIndentation(Whitespace.TAB, 1);
+// indentation with one tab and windows style line break
+Indentation tabIndentation = new WhitespaceIndentation(Whitespace.TAB, 1, LineBreak.WINDOWS);
 ```
 
 ### Invisible `Indentation`
