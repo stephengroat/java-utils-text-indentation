@@ -38,15 +38,16 @@ import java.io.IOException;
 public interface Indentation {
 
 	/**
-	 * A {@link WhitespaceIndentation}, using single {@link Whitespace#TAB tab}
-	 * character and the system line break, to default to, if no specific
-	 * {@link Indentation} is given.
+	 * A {@link WhitespaceIndentation}, using a single {@link Whitespace#TAB
+	 * tab} character and the system {@link LineBreak}, to default to, if no
+	 * specific {@link Indentation} is given.
 	 */
 	public static final Indentation DEFAULT = new WhitespaceIndentation(Whitespace.TAB, 1);
 
 	/**
-	 * A {@link InvisibleIndentation}, to default to, if no specific
-	 * {@link Indentation} is given.
+	 * A {@link InvisibleIndentation}, using {@link LineBreak#NONE no}
+	 * {@link LineBreak}, to default to, if no specific {@link Indentation} is
+	 * given.
 	 */
 	public static final Indentation INVISIBLE = new InvisibleIndentation();
 
