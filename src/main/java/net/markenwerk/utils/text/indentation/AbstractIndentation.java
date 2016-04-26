@@ -39,10 +39,6 @@ public abstract class AbstractIndentation implements Indentation {
 	/**
 	 * Creates a new {@link AbstractIndentation}.
 	 * 
-	 * <p>
-	 * An {@link AbstractIndentation} with level {@code 0} has no visible
-	 * effect.
-	 * 
 	 * @param indentationString
 	 *            The indentation string to be used.
 	 * @param lineBreak
@@ -65,10 +61,6 @@ public abstract class AbstractIndentation implements Indentation {
 
 	/**
 	 * Creates a new {@link AbstractIndentation}.
-	 * 
-	 * <p>
-	 * An {@link AbstractIndentation} with level {@code 0} has no visible
-	 * effect.
 	 * 
 	 * @param indentationString
 	 *            The indentation string to be used.
@@ -98,7 +90,7 @@ public abstract class AbstractIndentation implements Indentation {
 
 	@Override
 	public final boolean isVisible() {
-		return 0 != indentationString.length();
+		return true;
 	}
 
 	@Override
@@ -109,13 +101,11 @@ public abstract class AbstractIndentation implements Indentation {
 	@Override
 	public String get(int level, boolean includeLineBreak) throws IllegalArgumentException {
 		StringBuilder builder = new StringBuilder();
-		if (isVisible()) {
-			if (includeLineBreak) {
-				builder.append(lineBreakString);
-			}
-			for (int i = 0; i < level; i++) {
-				builder.append(indentationString);
-			}
+		if (includeLineBreak) {
+			builder.append(lineBreakString);
+		}
+		for (int i = 0; i < level; i++) {
+			builder.append(indentationString);
 		}
 		return builder.toString();
 	}
@@ -131,13 +121,11 @@ public abstract class AbstractIndentation implements Indentation {
 		if (null == appendable) {
 			throw new IllegalArgumentException("appendable is null");
 		}
-		if (isVisible()) {
-			if (includeLineBreak) {
-				appendable.append(lineBreakString);
-			}
-			for (int i = 0; i < level; i++) {
-				appendable.append(indentationString);
-			}
+		if (includeLineBreak) {
+			appendable.append(lineBreakString);
+		}
+		for (int i = 0; i < level; i++) {
+			appendable.append(indentationString);
 		}
 	}
 

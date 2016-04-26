@@ -21,6 +21,8 @@
  */
 package net.markenwerk.utils.text.indentation;
 
+import java.io.IOException;
+
 /**
  * A {@link InvisibleIndentation} is an {@link Indentation} that has no visible
  * effect.
@@ -28,14 +30,16 @@ package net.markenwerk.utils.text.indentation;
  * @author Torsten Krause (tk at markenwerk dot net)
  * @since 1.0.0
  */
-public class InvisibleIndentation extends AbstractIndentation {
+public class InvisibleIndentation implements Indentation {
+
+	private final LineBreak lineBreak;
 
 	/**
 	 * Creates a new {@link InvisibleIndentation} using the
-	 * {@link LineBreak#SYSTEM} {@link LineBreak}.
+	 * {@link LineBreak#NONE} {@link LineBreak}.
 	 */
 	public InvisibleIndentation() {
-		super("", LineBreak.SYSTEM);
+		this(LineBreak.NONE);
 	}
 
 	/**
@@ -48,7 +52,45 @@ public class InvisibleIndentation extends AbstractIndentation {
 	 *             If the given {@link LineBreak} is {@literal null}.
 	 */
 	public InvisibleIndentation(LineBreak lineBreak) throws IllegalArgumentException {
-		super("", lineBreak);
+		if (null == lineBreak) {
+			throw new IllegalArgumentException("indentation is null");
+		}
+		this.lineBreak = lineBreak;
+	}
+
+	@Override
+	public boolean isVisible() {
+		return false;
+	}
+
+	@Override
+	public String getLineBreak() {
+		return lineBreak.getLineBreakString();
+	}
+
+	@Override
+	public String get(int level) throws IllegalArgumentException {
+		return "";
+	}
+
+	@Override
+	public String get(int level, boolean includeLineBreak) throws IllegalArgumentException {
+		return "";
+	}
+
+	@Override
+	public void appendTo(Appendable appendable, int level) throws IllegalArgumentException, IOException {
+		if (null == appendable) {
+			throw new IllegalArgumentException("appendable is null");
+		}
+	}
+
+	@Override
+	public void appendTo(Appendable appendable, int level, boolean includeLineBreak) throws IllegalArgumentException,
+			IOException {
+		if (null == appendable) {
+			throw new IllegalArgumentException("appendable is null");
+		}
 	}
 
 }

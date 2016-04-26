@@ -39,9 +39,16 @@ public interface Indentation {
 
 	/**
 	 * A {@link WhitespaceIndentation}, using single {@link Whitespace#TAB tab}
-	 * character, to default to, if no specific {@link Indentation} is given.
+	 * character and the system line break, to default to, if no specific
+	 * {@link Indentation} is given.
 	 */
 	public static final Indentation DEFAULT = new WhitespaceIndentation(Whitespace.TAB, 1);
+
+	/**
+	 * A {@link InvisibleIndentation}, to default to, if no specific
+	 * {@link Indentation} is given.
+	 */
+	public static final Indentation INVISIBLE = new InvisibleIndentation();
 
 	/**
 	 * Returns whether this {@link Indentation} has any visible effect or if

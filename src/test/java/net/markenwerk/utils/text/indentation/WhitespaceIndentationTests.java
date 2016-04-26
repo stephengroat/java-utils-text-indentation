@@ -30,9 +30,20 @@ public class WhitespaceIndentationTests {
 	}
 
 	@Test
-	public void get_lengthZero_invisibleAtLevelZero() {
+	public void get_lengthZero_notNull() {
 
-		Indentation indentation = new WhitespaceIndentation(Whitespace.TAB, 0);
+		Indentation indentation = new WhitespaceIndentation(Whitespace.SPACE, 0);
+
+		String indentationString = indentation.get(0);
+
+		Assert.assertNotNull(indentationString);
+
+	}
+
+	@Test
+	public void get_lengthZero_levelZero() {
+
+		Indentation indentation = new WhitespaceIndentation(Whitespace.SPACE, 0);
 
 		String indentationString = indentation.get(0);
 
@@ -41,9 +52,9 @@ public class WhitespaceIndentationTests {
 	}
 
 	@Test
-	public void get_lengthZero_invisibleAtLevelNotZero() {
+	public void get_lengthZero_levelOne() {
 
-		Indentation indentation = new WhitespaceIndentation(Whitespace.TAB, 0);
+		Indentation indentation = new WhitespaceIndentation(Whitespace.SPACE, 0);
 
 		String indentationString = indentation.get(1);
 
@@ -52,31 +63,53 @@ public class WhitespaceIndentationTests {
 	}
 
 	@Test
-	public void get_lengthZero_invisibleLineBreakAtLevelZero() {
+	public void get_lengthZero_levelTwo() {
 
-		Indentation indentation = new WhitespaceIndentation(Whitespace.TAB, 0);
+		Indentation indentation = new WhitespaceIndentation(Whitespace.SPACE, 0);
+
+		String indentationString = indentation.get(2);
+
+		Assert.assertEquals("", indentationString);
+
+	}
+
+	@Test
+	public void get_lengthZero_lineBreakAtLevelZero() {
+
+		Indentation indentation = new WhitespaceIndentation(Whitespace.TAB, 0, LineBreak.UNIX);
 
 		String indentationString = indentation.get(0, true);
 
-		Assert.assertEquals("", indentationString);
+		Assert.assertEquals("\n", indentationString);
 
 	}
 
 	@Test
-	public void get_lengthZero_invisibleLineBreakAtLevelNotZero() {
+	public void get_lengthZero_lineBreakAtLevelOne() {
 
-		Indentation indentation = new WhitespaceIndentation(Whitespace.TAB, 0);
+		Indentation indentation = new WhitespaceIndentation(Whitespace.TAB, 0, LineBreak.UNIX);
 
 		String indentationString = indentation.get(1, true);
 
-		Assert.assertEquals("", indentationString);
+		Assert.assertEquals("\n", indentationString);
 
 	}
 
 	@Test
-	public void appendTo_lengthZero_invisibleAtLevelZero() throws IllegalArgumentException, IOException {
+	public void get_lengthZero_lineBreakAtLevelTwo() {
 
-		Indentation indentation = new WhitespaceIndentation(Whitespace.TAB, 0);
+		Indentation indentation = new WhitespaceIndentation(Whitespace.TAB, 0, LineBreak.UNIX);
+
+		String indentationString = indentation.get(2, true);
+
+		Assert.assertEquals("\n", indentationString);
+
+	}
+
+	@Test
+	public void appendTo_lengthZero_levelZero() throws IllegalArgumentException, IOException {
+
+		Indentation indentation = new WhitespaceIndentation(Whitespace.SPACE, 0);
 
 		StringBuilder stringBuilder = new StringBuilder();
 		indentation.appendTo(stringBuilder, 0);
@@ -87,9 +120,9 @@ public class WhitespaceIndentationTests {
 	}
 
 	@Test
-	public void appendTo_lengthZero_invisibleAtLevelNotZero() throws IllegalArgumentException, IOException {
+	public void appendTo_lengthZero_levelOne() throws IllegalArgumentException, IOException {
 
-		Indentation indentation = new WhitespaceIndentation(Whitespace.TAB, 0);
+		Indentation indentation = new WhitespaceIndentation(Whitespace.SPACE, 0);
 
 		StringBuilder stringBuilder = new StringBuilder();
 		indentation.appendTo(stringBuilder, 1);
@@ -100,12 +133,12 @@ public class WhitespaceIndentationTests {
 	}
 
 	@Test
-	public void appendTo_lengthZero_invisibleLineBreakAtLevelZero() throws IllegalArgumentException, IOException {
+	public void appendTo_lengthZero_levelTwo() throws IllegalArgumentException, IOException {
 
-		Indentation indentation = new WhitespaceIndentation(Whitespace.TAB, 0);
+		Indentation indentation = new WhitespaceIndentation(Whitespace.SPACE, 0);
 
 		StringBuilder stringBuilder = new StringBuilder();
-		indentation.appendTo(stringBuilder, 0, true);
+		indentation.appendTo(stringBuilder, 2);
 		String indentationString = stringBuilder.toString();
 
 		Assert.assertEquals("", indentationString);
@@ -113,22 +146,48 @@ public class WhitespaceIndentationTests {
 	}
 
 	@Test
-	public void appendTo_lengthZero_invisibleLineBreakAtLevelNotZero() throws IllegalArgumentException, IOException {
+	public void appendTo_lengthZero_lineBreakAtLevelZero() throws IllegalArgumentException, IOException {
 
-		Indentation indentation = new WhitespaceIndentation(Whitespace.TAB, 0);
+		Indentation indentation = new WhitespaceIndentation(Whitespace.TAB, 0, LineBreak.WINDOWS);
+
+		StringBuilder stringBuilder = new StringBuilder();
+		indentation.appendTo(stringBuilder, 0, true);
+		String indentationString = stringBuilder.toString();
+
+		Assert.assertEquals("\r\n", indentationString);
+
+	}
+
+	@Test
+	public void appendTo_lengthZero_lineBreakAtLevelOne() throws IllegalArgumentException, IOException {
+
+		Indentation indentation = new WhitespaceIndentation(Whitespace.TAB, 0, LineBreak.WINDOWS);
 
 		StringBuilder stringBuilder = new StringBuilder();
 		indentation.appendTo(stringBuilder, 1, true);
 		String indentationString = stringBuilder.toString();
 
-		Assert.assertEquals("", indentationString);
+		Assert.assertEquals("\r\n", indentationString);
+
+	}
+
+	@Test
+	public void appendTo_lengthZero_lineBreakAtLevelTwo() throws IllegalArgumentException, IOException {
+
+		Indentation indentation = new WhitespaceIndentation(Whitespace.TAB, 0, LineBreak.WINDOWS);
+
+		StringBuilder stringBuilder = new StringBuilder();
+		indentation.appendTo(stringBuilder, 2, true);
+		String indentationString = stringBuilder.toString();
+
+		Assert.assertEquals("\r\n", indentationString);
 
 	}
 
 	@Test
 	public void get_lengthOne_notNull() {
 
-		Indentation indentation = new WhitespaceIndentation(Whitespace.SPACE, 1);
+		Indentation indentation = new WhitespaceIndentation(Whitespace.SPACE, 0);
 
 		String indentationString = indentation.get(0);
 
