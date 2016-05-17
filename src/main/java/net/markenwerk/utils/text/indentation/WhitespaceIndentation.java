@@ -85,10 +85,10 @@ public final class WhitespaceIndentation extends AbstractIndentation {
 
 	private static String fromWhitespaceAndLength(Whitespace whitespace, int length) {
 		if (null == whitespace) {
-			throw new IllegalArgumentException("whitespace is null");
+			throw new IllegalArgumentException("The given whitespace is null");
 		}
 		if (length < 0) {
-			throw new IllegalArgumentException("length is negative");
+			throw new IllegalArgumentException("The given length is negative");
 		}
 		String indentation = "";
 		for (int i = 0; i < length; i++) {

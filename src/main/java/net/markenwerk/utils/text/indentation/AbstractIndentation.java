@@ -54,7 +54,7 @@ public abstract class AbstractIndentation implements Indentation {
 
 	private static String fromLineBreak(LineBreak lineBreak) {
 		if (null == lineBreak) {
-			throw new IllegalArgumentException("lineBreak is null");
+			throw new IllegalArgumentException("The given line break is null");
 		}
 		return lineBreak.getLineBreakString();
 	}
@@ -73,10 +73,10 @@ public abstract class AbstractIndentation implements Indentation {
 	 */
 	public AbstractIndentation(String indentationString, String lineBreakString) throws IllegalArgumentException {
 		if (null == indentationString) {
-			throw new IllegalArgumentException("indentationString is null");
+			throw new IllegalArgumentException("The given indentation string is null");
 		}
 		if (null == lineBreakString) {
-			throw new IllegalArgumentException("lineBreakString is null");
+			throw new IllegalArgumentException("The given line break string is null");
 		}
 		this.indentationString = indentationString;
 		this.lineBreakString = lineBreakString;
@@ -119,7 +119,7 @@ public abstract class AbstractIndentation implements Indentation {
 	public void appendTo(Appendable appendable, int level, boolean includeLineBreak) throws IllegalArgumentException,
 			IOException {
 		if (null == appendable) {
-			throw new IllegalArgumentException("appendable is null");
+			throw new IllegalArgumentException("The given appendable is null");
 		}
 		if (includeLineBreak) {
 			appendable.append(lineBreakString);

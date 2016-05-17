@@ -53,7 +53,7 @@ public class InvisibleIndentation implements Indentation {
 	 */
 	public InvisibleIndentation(LineBreak lineBreak) throws IllegalArgumentException {
 		if (null == lineBreak) {
-			throw new IllegalArgumentException("indentation is null");
+			throw new IllegalArgumentException("The given line break is null");
 		}
 		this.lineBreak = lineBreak;
 	}
@@ -80,16 +80,14 @@ public class InvisibleIndentation implements Indentation {
 
 	@Override
 	public void appendTo(Appendable appendable, int level) throws IllegalArgumentException, IOException {
-		if (null == appendable) {
-			throw new IllegalArgumentException("appendable is null");
-		}
+		appendTo(appendable, level, false);
 	}
 
 	@Override
 	public void appendTo(Appendable appendable, int level, boolean includeLineBreak) throws IllegalArgumentException,
 			IOException {
 		if (null == appendable) {
-			throw new IllegalArgumentException("appendable is null");
+			throw new IllegalArgumentException("The given appendable is null");
 		}
 	}
 
